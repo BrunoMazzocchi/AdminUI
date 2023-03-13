@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 import 'components/header.dart';
+import 'components/my_files.dart';
 import 'components/storage_details.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -19,31 +20,19 @@ class DashboardScreen extends StatelessWidget {
               height: defaultPadding,
             ),
             Row(
-              children: [
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children:  [
                 Expanded(
                   flex: 5,
                   child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "My Files",
-                            style: Theme.of(context).textTheme.titleMedium,
-                          ),
-                          ElevatedButton.icon(
-                              style: TextButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: defaultPadding * 1.5,
-                                    vertical: defaultPadding,
-                                  )),
-                              onPressed: () {},
-                              icon: const Icon(Icons.add),
-                              label: const Text("Add New"))
-                        ],
+                    children: const  [
+                      MyFiles(),
+                      SizedBox(
+                        height: defaultPadding,
                       )
                     ],
                   ),
+
                 ),
                 const SizedBox(
                   width: defaultPadding,
