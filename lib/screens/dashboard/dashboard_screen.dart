@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../constants.dart';
 import 'components/header.dart';
@@ -10,7 +9,6 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: SingleChildScrollView(
         padding: const EdgeInsets.all(defaultPadding),
@@ -24,14 +22,35 @@ class DashboardScreen extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 5,
-                  child: Container(height: 500, color: Colors.white),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "My Files",
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                          ElevatedButton.icon(
+                              style: TextButton.styleFrom(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: defaultPadding * 1.5,
+                                    vertical: defaultPadding,
+                                  )),
+                              onPressed: () {},
+                              icon: const Icon(Icons.add),
+                              label: const Text("Add New"))
+                        ],
+                      )
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   width: defaultPadding,
                 ),
                 const Expanded(
                   flex: 2,
-                  child:  StorageDetails(),
+                  child: StorageDetails(),
                 )
               ],
             )
