@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
+import '../../../responsive.dart';
 
 class ProfileCard extends StatelessWidget {
   final String name;
@@ -26,7 +27,7 @@ class ProfileCard extends StatelessWidget {
         children: [
           Image.asset(image,
             height: 38,),
-          Padding(
+         if(!Responsive.isMobile(context)) Padding(
             padding:  const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
             child:  Text(name),
           ),

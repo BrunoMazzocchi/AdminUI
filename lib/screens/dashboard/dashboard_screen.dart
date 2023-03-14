@@ -1,8 +1,7 @@
-import 'package:admin_ui/models/recent_file.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../constants.dart';
+import '../../responsive.dart';
 import 'components/header.dart';
 import 'components/my_files.dart';
 import 'components/recent_files.dart';
@@ -28,19 +27,30 @@ class DashboardScreen extends StatelessWidget {
                 Expanded(
                   flex: 5,
                   child: Column(
-                    children:  const [
-                       MyFiles(),
-                       SizedBox(
+                    children:   [
+                      const MyFiles(),
+                      const  SizedBox(
                         height: defaultPadding,
                       ),
-                        RecentFiles(),
+                      const  RecentFiles(),
+                      if(Responsive.isMobile(context))
+                        const   SizedBox(
+                          height: defaultPadding,
+                        ),
+                      //  If it is less than 850, we show it at the bottom
+                      if(Responsive.isMobile(context))
+                       const  StorageDetails(),
+
                     ],
                   ),
 
                 ),
-                const SizedBox(
+                if(!Responsive.isMobile(context))
+                  const SizedBox(
                   width: defaultPadding,
                 ),
+                //  If it is less than 850, we don't show it
+                if(!Responsive.isMobile(context))
                 const Expanded(
                   flex: 2,
                   child: StorageDetails(),
