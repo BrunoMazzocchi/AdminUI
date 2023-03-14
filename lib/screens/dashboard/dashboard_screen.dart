@@ -1,8 +1,11 @@
+import 'package:admin_ui/models/recent_file.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../constants.dart';
 import 'components/header.dart';
 import 'components/my_files.dart';
+import 'components/recent_files.dart';
 import 'components/storage_details.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -25,11 +28,12 @@ class DashboardScreen extends StatelessWidget {
                 Expanded(
                   flex: 5,
                   child: Column(
-                    children: const  [
-                      MyFiles(),
-                      SizedBox(
+                    children:  const [
+                       MyFiles(),
+                       SizedBox(
                         height: defaultPadding,
-                      )
+                      ),
+                        RecentFiles(),
                     ],
                   ),
 
@@ -48,4 +52,8 @@ class DashboardScreen extends StatelessWidget {
       ),
     );
   }
+
+
+
 }
+
